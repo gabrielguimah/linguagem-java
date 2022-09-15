@@ -1,0 +1,104 @@
+# Tratamento de Exceções
+## Definição
+     Se baseiam em erros imprevistos que podem ocorrer durante a criação de um programa no Java, sendo que estes erros podem 
+     ser provenientes de erros de lógica ou por causa de acesso a dispositivos/arquivos externos.
+     Para tratar estas exceções, se utilizam os comandos "try" e "catch".
+## Exceções comuns
+### Divisão por zero
+        "ArithmeticException"
+         public class Main {
+	     public static void main(String[] args) {
+		try{
+			int i = 10;
+			int j = 0;
+			int x = i/j;
+			System.out.println("Depois da Divisão");
+		}catch (ArithmeticException e){
+			System.out.println("Divisão por zero");
+		}catch (Exception e){
+               e.printStackTrace();
+            }
+          }
+### Conversão de tipos de dados inválidos
+	 "ClassCastException"
+         public class Main {
+	     public static void main(String[] args) {
+		try{
+			Object o = new Object();
+			String s = (String) o;
+		} catch (Exception e) {
+			System.out.println("Conversão Inválida"); 
+		}
+		}
+### Acessar uma posição inválida em um arranjo
+       "IndexOutOfBoundsException"
+	     public class Main {
+	     public static void main(String[] args) {
+		try{
+		     ArrayList<Integer> l = new ArrayList<>();
+		     l.get(99)
+		}catch (IndexOutOfBoundsException e){
+		  System.out.println(Erro na Array);
+		  }
+### Acessar uma String nula
+        "NullPointerException"
+          public class Main {
+          public static void main(String[] args) {
+		try{
+			String s = null
+			s.replace ("","")
+			System.out.println("String substituida");
+		}catch (NullPointerException e){
+			System.out.println("String null");
+		}catch (Exception e){
+               e.printStackTrace();
+            }
+          }
+					
+## Bloco para capturar uma exceção
+     Se utilliza o bloco "catch", junto com o nome da exceção para capturar uma exceção em especifico
+          Exemplo:
+          }catch (ArithmeticException e){
+## Bloco para capturar diferentes exceções
+	Para se tratar de multiplas exceções diferentes, deve-se criar diversos comandos de catch
+	 Exemplo:
+          try{
+	   String = null
+	   s.replace("","")
+	   int i = 10;
+	   int j = 0;
+	   int x = i/j;
+	  }catch(ArithmeticException e){
+  	     System.out.println("dividido por zero");
+	  }catch(NullPointerException e){
+	     System.out.println("String null");
+	   }
+	  }
+
+## Bloco finally
+	O bloco "finally" sempre será executado após o bloco try, independentemente de sua conclusão,seja 
+	ter ocorrido normalmente ou ter sido interrompida
+         public class Main {
+	     public static void main(String[] args) {
+		try{
+			int i = 10;
+			int j = 0;
+			int x = i/j;
+			System.out.println("Depois da Divisão");
+		}catch (ArithmeticException e){
+			System.out.println("Divisão por zero");
+		}catch (Exception e){
+               e.printStackTrace();
+                }
+		finally {
+		  System.out.println("Encerrou o processo")
+             	}
+		}
+	
+## Lançar uma exceção
+	public class Main {
+	public static void main(String[] args)
+	 throws Exception{
+	  throw new Exception("Minha Exceção");
+	  }
+	 }
